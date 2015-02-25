@@ -1,0 +1,36 @@
+http://www.drpub.eit.h-da.de/de/content/raspberry-pi-eclipse
+
+Raspberry Pi with Eclipse
+
+Eclipse in VM:
+Build:
+In eclipse build the project as normal (nor cross) programm.
+Build the Project binary
+Check for the binary to be of type "arm/le" as shown in the project explorer.
+Remote connection to the board:
+Setup a new connection:
+File>new>Other Remote-System-Explorer>Connection
+Set system type to Linux
+Set hostname to IP, goto next
+Change the Files Configuration choice to "ssh.files", goto next
+Change the Processes Configuration to "processes.shell.linux", goto next
+Change the Shells Configuration to "ssh.shells"
+Finish
+Use an existing one:
+Window > Open Perspective > Other > Remote-System-Explorer
+Mark the desired connection and right-click mouse button:
+Select connect, userid=pi and password=raspberry
+mark save password
+use/cancel the popup window "Secure Storage"
+you should be connected now (rightclick connection shows now a disconnect entry)
+and look into your files in the home directory.
+Debug:
+Do not use the DEBUG-Button when using debug for  the FIRST time. Eclipse will build the wrong debug configuration!
+Mark the top of the project in the project explorer and right-click mouse button, then
+select "Debug As" and "Debug Configurations"
+Mark "C/C++ Remote Application" and press New
+Check, that the right project and application is filled in
+Set "Enable auto build" and
+configure the connection to the board  (the remote connection configured before)
+setup the "Remote Absolute File Path..." to /tmp
+Check that at the bottom "Using GDB (DSF) Automatic Remote Debugging Launcher" is listed.
